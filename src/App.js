@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import SectionA from "./component/page/home/SectionA";
+import SectionB from "./component/page/home/SectionB";
+import SectionC from "./component/page/home/SectionC";
+import SectionE from "./component/page/home/SectionE";
+import Navbar from "./component/main/Navbar";
+import Footer from "./component/main/Footer";
+import SectionMain from "./component/page/home/SectionMain";
+import PageTwo from "./component/page/home/PageTwo";
+import One from "./component/page/home/One";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <Navbar />
       </header>
-    </div>
+      <main>
+        <section id="section-main">
+          <SectionMain />
+        </section>
+        <section id="section-a">
+          <SectionA />
+        </section>
+        <section id="section-b">
+          <SectionB />
+        </section>
+        <section id="section-c">
+          <SectionC />
+        </section>
+        <section id="section-e">
+          <SectionE />
+        </section>
+        <section id="section-page-two">
+          <PageTwo />
+        </section>
+        <section id="section-one">
+          <One />
+        </section>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }
 
