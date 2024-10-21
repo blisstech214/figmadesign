@@ -14,10 +14,10 @@ import Outbox from "./component/page/home/Outbox";
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Login />
 
-      {/* <SectionA />
+      <SectionA />
 
       <SectionB />
 
@@ -29,8 +29,8 @@ function App() {
       <PageTwo />
 
       <Inbox />
-      <Outbox /> */}
-      {/* <Footer /> */}
+      <Outbox />
+      <Footer />
     </>
   );
 }
