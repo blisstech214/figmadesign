@@ -4,17 +4,17 @@ import A from "../../../assets/A.png";
 import C from "../../../assets/logoT.png";
 
 import { IoCheckmarkSharp } from "react-icons/io5";
-import { FiFilter } from "react-icons/fi";
+import { FiFilter ,FiSearch } from "react-icons/fi";
 function PageTwo() {
   return (
     <div className="">
-      <div className="flex justify-between px-10 py-5">
-        <h1 className="text-lg md:font-semibold">Inbox Total</h1>
-        <h1 className="text-xl font-bold">€0,-</h1>
-        <div className="flex justify-around items-center p-1 text-white rounded-full w-32 bg-orange">
-          <h1>BTW aan</h1>
-          <h1 className="w-7 h-7  bg-white flex items-center justify-center rounded-full">
-            <IoCheckmarkSharp className="text-blue text-lg" />
+       <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
+        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">inbox Total</h1>
+        <h1 className="text-base sm:text-xl font-bold">€150,-</h1>
+        <div className="flex justify-around items-center p-1 text-white rounded-full w-28 sm:w-32 bg-orange">
+          <h1 className="text-xs sm:text-sm">BTW aan</h1>
+          <h1 className="w-6 h-6 sm:w-7 sm:h-7 bg-white flex items-center justify-center rounded-full">
+            <IoCheckmarkSharp className="text-blue text-xs sm:text-lg" />
           </h1>
         </div>
       </div>
@@ -22,10 +22,18 @@ function PageTwo() {
       <div className="bg-bgcolor md:px-10 md:p-10 p-5 space-y-5">
         {/* Filter Options */}
         <div className="flex justify-around items-center">
-          <h1 className="text-lg font-bold text-orangedark">vandaag</h1>
-          {/* <h1 className="text-lg text-zinc-400">gisteren</h1> */}
-          <h1 className="text-xl text-orangedark font-bold">
-            <FiFilter className="" />
+          <h1 className="text-xl font-bold text-orangedark">terug</h1>
+          <h1 className="text-lg text-orangedark">
+            meest <br /> betaald
+          </h1>
+          <h1 className="text-xl text-gray-300">
+            meest <br /> gekocht
+          </h1>
+          <h1 className="text-2xl font-bold text-orangedark">
+            <FiSearch />
+          </h1>
+          <h1 className="text-2xl text-orangedark font-bold">
+            <FiFilter />
           </h1>
         </div>
 
@@ -39,24 +47,20 @@ function PageTwo() {
             <li className="">
               <img src={A} />
             </li>
-            <li className="text-black font-bold">
-              Bouwmaat Haarlem <br />
+            <li className="text-black font-bold">Bouwmaat Haarlem <br />
               <span className="text-gray-300 font-normal">totaal facturen</span>
             </li>
             <li className="text-gray-300">4</li>
             <li className="text-black font-bold">€1.302,-</li>
           </p>
           <hr />
-          <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
+       <div>
+       <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
             <li className="">
               <img src={A} />
             </li>
-            <li className="text-black font-bold">
-              <span className="text-gray-300 font-normal">
-                21 oktober ontvangen ,22:05
-              </span>
-              <br />
-              Bouwmaat Haarlem
+            <li className="text-black font-bold"><span className="text-gray-300 font-normal">21 oktober ontvangen ,22:05
+              </span><br />Bouwmaat Haarlem
             </li>
             <li className="text-gray-300">1</li>
             <li className="text-black font-bold">€150,-</li>
@@ -107,6 +111,7 @@ function PageTwo() {
             <li className="text-black font-bold">€660,-</li>
           </p>
           <hr />
+       </div>
         </div>
         <div className="bg-white p-5 space-y-5">
           <div className="flex justify-end space-y-3 items-center">
@@ -126,7 +131,8 @@ function PageTwo() {
             <li className="text-black font-bold">€80,-</li>
           </p>
           <hr />
-          <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
+         <div>
+         <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
             <li className="">
               <img src={C} />
             </li>
@@ -156,8 +162,9 @@ function PageTwo() {
             <li className="text-black font-bold">€40,-</li>
           </p>
           <hr />
+         </div>
 
-          <hr />
+         
         </div>
       </div>
     </div>

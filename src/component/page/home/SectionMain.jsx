@@ -8,10 +8,10 @@ import { HiOutlineBars2 } from "react-icons/hi2";
 import { IoShareSocialOutline } from "react-icons/io5";
 import A from "../../../assets/A.png";
 import B from "../../../assets/B.png";
-function Footer() {
+function SectionMain() {
   return (
     <div className="flex">
-      <div className="bg-orangedark lg:block md:block sm:hidden hidden p-10 inline-block h-screen">
+      <div className="bg-orangedark lg:block md:block sm:hidden hidden p-10 :inline-block h-screen">
         <div className="text-white list-none space-y-16">
           <li className="flex  gap-10">
             <RiHome2Line className="text-2xl" />
@@ -48,7 +48,7 @@ function Footer() {
       <div>
         <div className="w-full">
           <div className="flex gap-20  items-center justify-center px-10 py-5">
-            <h1 className="text-lg md:font-semibold">Inbox Total</h1>
+            <h1 className="text-lg md:font-semibold">inbox Total</h1>
             <h1 className="text-xl font-bold">€150,-</h1>
            
           </div>
@@ -252,4 +252,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default SectionMain;
