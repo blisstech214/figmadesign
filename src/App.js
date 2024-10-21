@@ -27,9 +27,12 @@ function App() {
       <SectionMain />
 
       <PageTwo />
-
-      <Inbox />
-      <Outbox />
+      <div className="">
+        <Inbox />
+      </div>
+      <div className="">
+        <Outbox />
+      </div>
       <Footer />
     </>
   );
