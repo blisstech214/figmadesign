@@ -1,40 +1,18 @@
-import "./App.css";
-import SectionA from "./component/page/home/SectionA";
-import SectionB from "./component/page/home/SectionB";
-import SectionC from "./component/page/home/SectionC";
-import SectionE from "./component/page/home/SectionE";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./component/main/Navbar";
-import Footer from "./component/main/Footer";
-import SectionMain from "./component/page/home/SectionMain";
-import PageTwo from "./component/page/home/PageTwo";
-// import One from "./component/page/home/One";
-import Login from "./component/page/home/Login";
-import Inbox from "./component/page/home/Inbox";
-import Outbox from "./component/page/home/Outbox";
+import Login from "./component/page/home/Login"; // Assuming you have a Login component
+import ChilCom from "./component/page/home/ChilCom";
+// import DashBoard from "./component/page/home/DashBoard";
+// import SectionB from "./component/page/home/SectionB"
 function App() {
   return (
-    <>
-      <Navbar />
-      <Login />
-
-      <SectionA />
-
-      <SectionB />
-
-      <SectionC />
-
-      <SectionE />
-      <SectionMain />
-
-      <PageTwo />
-      <div className="">
-        <Inbox />
-      </div>
-      <div className="">
-        <Outbox />
-      </div>
-      <Footer />
-    </>
+    <div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Navbar />} />
+        <Route Path="/SectionB" element={<ChilCom />} />
+      </Routes>
+    </div>
   );
 }
 

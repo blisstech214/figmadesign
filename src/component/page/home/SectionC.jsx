@@ -39,41 +39,29 @@ function SectionC() {
         {/* Cards Section: Responsive Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {/* First Card */}
-          <div className="border-2 space-y-3 rounded-2xl p-3 sm:p-5 bg-white border-orange shadow-md">
-            <h1 className="text-xs sm:text-sm md:text-base text-gray-300">
-              Net ontvangen, vandaag 12:05
-            </h1>
+          <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2">
+            <h1 className="text-xs md:text-sm text-gray-400">Net ontvangen, vandaag 12:05</h1>
             <div className="flex justify-between items-center">
-              <h1 className="text-sm sm:text-lg font-bold">Bouwmaat Haarlem</h1>
-              <img src={A} alt="logo" className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" />
+              <h1 className="text-sm md:text-lg font-bold">Bouwmaat Haarlem</h1>
+              <img src={A} alt="logo" className="w-8 h-8 md:w-10 md:h-10" />
             </div>
             <hr />
-            <div className="flex justify-between items-center text-xs sm:text-sm lg:text-lg font-medium">
+            <div className="flex justify-between items-center text-xs md:text-sm lg:text-base font-medium">
               <img src={B} alt="product" className="w-10 h-10" />
-              <p className="font-bold text-gray-300">
-                Houten balken
-                <br />
-                138*38mm
-              </p>
-              <p className="text-gray-300">2 stuks</p>
+              <p className="text-gray-400">Houten balken<br />138*38mm</p>
+              <p className="text-gray-400">2 stuks</p>
               <p className="font-bold">€150,-</p>
             </div>
             <hr />
-            <div className="flex justify-between items-center text-xs sm:text-sm lg:text-lg font-medium">
-              <button className="bg-orange text-white rounded-md p-1 px-3 sm:px-5">
-                Bekijk
-              </button>
+            <div className="flex justify-between items-center text-xs md:text-sm lg:text-base font-medium">
+              <button className="bg-orange text-white rounded-md p-1 px-5">Bekijk</button>
               <p className="font-bold">Totaal factuur</p>
               <p className="font-bold">€150,-</p>
             </div>
             <div className="flex justify-between items-center">
-              <IoShareSocialOutline className="text-xl sm:text-2xl" />
-              <button className="bg-orangedark text-white rounded-lg p-1 px-2 sm:p-1">
-                Naar boekhouding
-              </button>
-              <button className="bg-gray-300 text-white rounded-md p-1 px-2 sm:p-1">
-                Naar project
-              </button>
+              <IoShareSocialOutline className="text-2xl" />
+              <button className="bg-orangedark text-white rounded-lg p-1">Naar boekhouding</button>
+              <button className="bg-gray-300 text-white rounded-md p-1">Naar project</button>
             </div>
           </div>
 

@@ -1,8 +1,14 @@
-
 import React from "react";
 import google from "../../../assets/logobg.png";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+  const Click = (e) => {
+    e.preventDefault();
+    navigate("/dashboard");
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center py-6 px-4 bg-gray-100">
       <div className="w-full bg-bgcolor max-w-md rounded-lg shadow-lg p-4 sm:p-6">
@@ -33,19 +39,30 @@ function Login() {
           </label>
         </div>
 
-        <button className="w-full shadow-xl bg-orangedark text-white text-center p-2 sm:p-3 rounded-full mb-4 hover:bg-orange-600 transition-colors">
+        <button
+          onClick={Click}
+          className="w-full shadow-xl bg-orangedark text-white text-center p-2 sm:p-3 rounded-full mb-4 hover:bg-orange-600 transition-colors"
+        >
           aanmelden
         </button>
 
         <h1 className="text-center text-xs sm:text-sm mb-2 font-bold">Of</h1>
 
         <div className="flex p-2 bg-slate-50 border-2 rounded-full outline-2 items-center justify-center gap-2 mb-4">
-          <img src={google} alt="Google Logo" className="h-6 w-6 sm:h-8 sm:w-8" />
-          <h1 className="text-xs sm:text-sm font-semibold text-gray-500">Sign in with Google</h1>
+          <img
+            src={google}
+            alt="Google Logo"
+            className="h-6 w-6 sm:h-8 sm:w-8"
+          />
+          <h1 className="text-xs sm:text-sm font-semibold text-gray-500">
+            Sign in with Google
+          </h1>
         </div>
 
-        <hr className="my-8"  />
-        <h1 className="text-black py-3 text-center font-bold text-xl sm:text-xl">Inloggen</h1>
+        <hr className="my-8" />
+        <h1 className="text-black py-3 text-center font-bold text-xl sm:text-xl">
+          Inloggen
+        </h1>
         <input
           type="email"
           placeholder="Email address"
@@ -62,8 +79,14 @@ function Login() {
         <h1 className="text-center text-xs sm:text-sm mb-2 font-bold">Of</h1>
 
         <div className="flex p-2 border-2 bg-slate-50 outline-2 items-center rounded-full justify-center gap-2 mb-4">
-          <img src={google} alt="Google Logo" className="h-6 w-6 sm:h-8 sm:w-8" />
-          <h1 className="text-xs sm:text-sm text-gray-500 font-semibold">Sign in with Google</h1>
+          <img
+            src={google}
+            alt="Google Logo"
+            className="h-6 w-6 sm:h-8 sm:w-8"
+          />
+          <h1 className="text-xs sm:text-sm text-gray-500 font-semibold">
+            Sign in with Google
+          </h1>
         </div>
       </div>
     </div>

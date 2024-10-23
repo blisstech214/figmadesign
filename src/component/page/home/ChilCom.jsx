@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../../assets/logo.png";
 import { HiOutlineBars2 } from "react-icons/hi2";
 import { RiHome2Line } from "react-icons/ri";
 import { IoArrowUndoOutline, IoArrowRedoOutline } from "react-icons/io5";
 import { IoMdContact } from "react-icons/io";
 // import { SiGnuprivacyguard } from "react-icons/si";
-import Footer from "./Footer";
-import DashBoard from "../page/home/DashBoard";
-
-function Navbar() {
+import Footer from "../../main/Footer";
+// import DashBoard from "../page/home/DashBoard";
+import SectionB from "./SectionB";
+function ChilCom() {
   const [open, setOpen] = useState(false);
-  const [activePage, setActivePage] = useState("home");
+  //   const [activePage, setActivePage] = useState("home");
 
   const toggleFooter = () => {
     setOpen(!open);
-  };
-
-  const handleClick = (page) => {
-    setActivePage(page); // Set the active page based on the clicked menu
   };
 
   return (
@@ -47,21 +43,21 @@ function Navbar() {
 
       {/* Sidebar for Desktop View */}
       <div className="flex flex-1">
-        <aside className="sm:hidden lg:flex bg-orangedark p-10 py-5 items-center justify-center flex">
+        <aside className="hidden lg:flex bg-orangedark p-10">
           <ul className="text-white list-none space-y-20 cursor-pointer">
-            <li className="flex gap-5 items-center cursor-pointer hover:text-blue" onClick={() => handleClick("home")}>
+            <li className="flex gap-5 items-center cursor-pointer hover:text-blue">
               <RiHome2Line className="text-2xl" />
               <h1 className="text-sm md:text-base">Home</h1>
             </li>
-            <li className="flex gap-5 items-center cursor-pointer hover:text-blue" onClick={() => handleClick("inbox")}>
+            <li className="flex gap-5 items-center cursor-pointer hover:text-blue">
               <IoArrowRedoOutline className="text-2xl" />
               <h1 className="text-sm md:text-base">Inbox</h1>
             </li>
-            <li className="flex gap-5 items-center cursor-pointer hover:text-blue" onClick={() => handleClick("outbox")}>
+            <li className="flex gap-5 items-center cursor-pointer hover:text-blue">
               <IoArrowUndoOutline className="text-2xl" />
               <h1 className="text-sm md:text-base">Outbox</h1>
             </li>
-            <li className="flex gap-5 items-center cursor-pointer hover:text-blue" onClick={() => handleClick("profile")}>
+            <li className="flex gap-5 items-center cursor-pointer hover:text-blue">
               <IoMdContact className="text-2xl" />
               <h1 className="text-sm md:text-base">Profile</h1>
             </li>
@@ -69,7 +65,9 @@ function Navbar() {
         </aside>
 
         {/* Main Content */}
-        <DashBoard activePage={activePage} /> {/* Pass activePage as a prop */}
+        {/* <DashBoard activePage={activePage} />  */}
+        {/* Pass activePage as a prop */}
+        <SectionB />
       </div>
 
       {/* Footer Overlay for Mobile and Tablet View */}
@@ -79,10 +77,10 @@ function Navbar() {
         } lg:hidden`}
         onDoubleClick={toggleFooter}
       >
-        <Footer onFooterClick={handleClick} /> {/* Pass handleClick for Footer */}
+        <Footer /> {/* Pass handleClick for Footer */}
       </footer>
     </div>
   );
 }
 
-export default Navbar;
+export default ChilCom;

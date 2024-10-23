@@ -1,5 +1,4 @@
 
-import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter } from "react-icons/fi";
 import company from "../../../assets/first.jpg";
@@ -11,11 +10,19 @@ import tick from "../../../assets/tick.png";
 import wrong from "../../../assets/wrong.png";
 
 function SectionA() {
+  const navigate = useNavigate();
+  const Click = (e) => {
+    e.preventDefault();
+    navigate("/SectionB");
+  };
+
   return (
     <div className="">
       {/* Header Section */}
       <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
-        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">inbox Total</h1>
+        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">
+          inbox Total
+        </h1>
         <h1 className="text-base sm:text-xl font-bold">€150,-</h1>
         <div className="flex justify-around items-center p-1 text-white rounded-full w-28 sm:w-32 bg-orange">
           <h1 className="text-xs sm:text-sm">BTW aan</h1>
@@ -51,7 +58,10 @@ function SectionA() {
             <div className="flex gap-3">
               <img src={company} alt="Company software" className="w-[60%]" />
               <div className="flex justify-center items-center">
-                <button className="bg-green text-center p-2 sm:p-4 px-3 sm:px-5 rounded-2xl text-white text-xs sm:text-sm">
+                <button
+                  onClick={Click}
+                  className="bg-green text-center p-2 sm:p-4 px-3 sm:px-5 rounded-2xl text-white text-xs sm:text-sm"
+                >
                   Upload factuur
                 </button>
               </div>
@@ -66,21 +76,34 @@ function SectionA() {
           <div className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl">
             <div className="flex justify-between">
               <h1 className="text-sm sm:text-lg font-bold text-blue">
-                je factuurbox is de eerste Gratis conversie tool voor al je facturen
+                je factuurbox is de eerste Gratis conversie tool voor al je
+                facturen
               </h1>
               <HiOutlineBars2 className="text-blue text-xl" />
             </div>
             <hr />
             <p className="text-xs sm:text-sm md:text-lg font-medium">
-              Ondernemers kunnen met de factuurbox<span className="text-green2"> honderden euroos conversiekosten besparen</span> op hun huidige boekhoudkosten... <span className="text-gray-400">lees meer</span>
+              Ondernemers kunnen met de factuurbox
+              <span className="text-green2">
+                {" "}
+                honderden euroos conversiekosten besparen
+              </span>{" "}
+              op hun huidige boekhoudkosten...{" "}
+              <span className="text-gray-400">lees meer</span>
             </p>
-            <img src={business} alt="Business illustration" className="w-full" />
+            <img
+              src={business}
+              alt="Business illustration"
+              className="w-full"
+            />
           </div>
 
           {/* Third Card */}
           <div className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl">
             <div className="flex justify-between">
-              <h1 className="text-sm sm:text-lg font-bold text-blue">Van mailbox naar Factuurbox</h1>
+              <h1 className="text-sm sm:text-lg font-bold text-blue">
+                Van mailbox naar Factuurbox
+              </h1>
               <HiOutlineBars2 className="text-blue text-xl" />
             </div>
             <hr />
@@ -91,12 +114,24 @@ function SectionA() {
             </ul>
             <div className="grid grid-cols-2 gap-3 p-5">
               <div className="relative">
-                <img src={wrong} className="absolute top-2 left-2 w-5 sm:w-6" alt="Wrong" />
+                <img
+                  src={wrong}
+                  className="absolute top-2 left-2 w-5 sm:w-6"
+                  alt="Wrong"
+                />
                 <img src={mail} className="p-4 w-full" alt="Email box" />
               </div>
               <div className="relative bg-gradient-to-t from-liner to-white rounded-2xl flex justify-center items-center">
-                <img src={tick} className="absolute top-2 left-2 w-5 sm:w-6" alt="Tick" />
-                <img src={mail2} className="p-4 w-full" alt="Factuurbox symbol" />
+                <img
+                  src={tick}
+                  className="absolute top-2 left-2 w-5 sm:w-6"
+                  alt="Tick"
+                />
+                <img
+                  src={mail2}
+                  className="p-4 w-full"
+                  alt="Factuurbox symbol"
+                />
               </div>
             </div>
           </div>

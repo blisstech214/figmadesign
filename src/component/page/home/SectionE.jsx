@@ -10,7 +10,7 @@ import C from "../../../assets/logoT.png";
 
 function SectionE() {
   return (
-    <div className="w-full px-4 md:px-10 py-5">
+    <div className="w-full py-5">
      <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
         <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">inbox Total</h1>
         <h1 className="text-base sm:text-xl font-bold">€230,-</h1>
@@ -52,7 +52,7 @@ function SectionE() {
               <p className="font-bold">€150,-</p>
             </div>
             <hr />
-            <div className="flex justify-between items-center text-xs md:text-sm lg:text-base font-medium">
+            <div className="flex justify-between items-center md:gap-0 lg:gap-0 sm:gap-10 gap-10 text-xs md:text-sm lg:text-base font-medium">
               <button className="bg-orange text-white rounded-md p-1 px-5">Bekijk</button>
               <p className="font-bold">Totaal factuur</p>
               <p className="font-bold">€150,-</p>
@@ -79,10 +79,10 @@ function SectionE() {
               <p className="font-bold">€40,-</p>
             </div>
             <hr />
-            <div className="flex justify-between items-center text-xs md:text-sm lg:text-base font-medium">
+            <div className="flex justify-between items-center text-xs md:text-sm  md:gap-0 lg:gap-0 sm:gap-10 gap-10 lg:text-base font-medium">
               <button className="bg-orange text-white rounded-md p-1 px-5">Bekijk</button>
               <p className="font-bold">Totaal factuur</p>
-              <p className="font-bold">€40,-</p>
+              <p className="font-bold">€150,-</p>
             </div>
             <div className="flex justify-between items-center">
               <IoShareSocialOutline className="text-2xl" />
@@ -106,7 +106,7 @@ function SectionE() {
               <p className="font-bold">€40,-</p>
             </div>
             <hr />
-            <div className="flex justify-between items-center text-xs md:text-sm lg:text-base font-medium">
+            <div className="flex justify-between items-center text-xs md:text-sm md:gap-0 lg:gap-0 sm:gap-10 gap-10 lg:text-base font-medium">
               <button className="bg-orange text-white rounded-md p-1 px-5">Bekijk</button>
               <p className="font-bold">Totaal factuur</p>
               <p className="font-bold">€40,-</p>
