@@ -47,7 +47,7 @@ function Navbar() {
 
       {/* Sidebar for Desktop View */}
       <div className="flex flex-1">
-        <aside className="sm:hidden lg:flex bg-orangedark p-10 py-5 items-center justify-center flex">
+        <aside className="hidden lg:flex bg-orangedark p-10">
           <ul className="text-white list-none space-y-20 cursor-pointer">
             <li className="flex gap-5 items-center cursor-pointer hover:text-blue" onClick={() => handleClick("home")}>
               <RiHome2Line className="text-2xl" />

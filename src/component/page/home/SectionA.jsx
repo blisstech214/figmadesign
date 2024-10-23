@@ -8,7 +8,7 @@ import mail from "../../../assets/emailbox 1.png";
 import mail2 from "../../../assets/factuurboxsymbool 1.png";
 import tick from "../../../assets/tick.png";
 import wrong from "../../../assets/wrong.png";
-
+import { useNavigate } from "react-router-dom";
 function SectionA() {
   const navigate = useNavigate();
   const Click = (e) => {
