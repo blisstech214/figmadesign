@@ -15,7 +15,6 @@ function SectionA() {
     e.preventDefault();
     navigate("/SectionB");
   };
-
   return (
     <div className="">
       {/* Header Section */}

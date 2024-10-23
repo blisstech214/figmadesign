@@ -17,7 +17,7 @@ function Navbar() {
   };
 
   const handleClick = (page) => {
-    setActivePage(page); // Set the active page based on the clicked menu
+    setActivePage(page); 
   };
 
   return (
