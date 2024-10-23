@@ -3,12 +3,25 @@ import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter } from "react-icons/fi";
 import { IoShareSocialOutline } from "react-icons/io5";
-
+import PageTwo from "./PageTwo";
 import A from "../../../assets/A.png";
 import B from "../../../assets/B.png";
 import C from "../../../assets/logoT.png";
-
+import { useState } from "react";
 function SectionE() {
+  const [ShowSectionMain, setShowSectionMain] = useState(false);
+
+  const handleUploadClick = () => {
+    setShowSectionMain(true); // This will trigger SectionB to show
+  };
+
+  
+  // If `showSectionB` is true, render SectionB instead of SectionA
+  if (ShowSectionMain) { 
+    return <PageTwo />;
+  }
+ 
+  
   return (
     <div className="w-full py-5">
      <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
@@ -38,7 +51,7 @@ function SectionE() {
         {/* Cards Section: Responsive Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
           {/* First Card */}
-          <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2">
+          <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2"  onClick={handleUploadClick} >
             <h1 className="text-xs md:text-sm text-gray-400">Net ontvangen, vandaag 12:05</h1>
             <div className="flex justify-between items-center">
               <h1 className="text-sm md:text-lg font-bold">Bouwmaat Haarlem</h1>

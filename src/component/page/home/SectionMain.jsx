@@ -4,7 +4,32 @@ import { HiOutlineBars2 } from "react-icons/hi2";
 import { IoShareSocialOutline } from "react-icons/io5";
 import A from "../../../assets/A.png";
 import B from "../../../assets/B.png";
+import { useState } from "react";
+import SectionC from "./SectionC";
+import SectionE from "./SectionE";
 function SectionMain() {
+  const [showSectionB, setShowSectionB] = useState(false);
+  const [ShowSectionMain, setShowSectionMain] = useState(false);
+
+  const handleUploadClick = () => {
+    setShowSectionB(true); // This will trigger SectionB to show
+  };
+
+  const handleClick =()=>{
+    setShowSectionMain(true);
+
+  }
+  // If `showSectionB` is true, render SectionB instead of SectionA
+  if (showSectionB) {
+    return <SectionC />;
+  }
+  if (ShowSectionMain) {
+    return <SectionE />;
+  }
+
+
+
+  
   return (
     <div className="">
       <div>
@@ -33,7 +58,7 @@ function SectionMain() {
             {/* Cards Section: Responsive Grid */}
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
               {/* First Card */}
-              <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2">
+              <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2" onClick={handleUploadClick}>
                 <h1 className="text-xs md:text-sm text-gray-400">
                   Net ontvangen, vandaag 12:05
                 </h1>
@@ -73,7 +98,7 @@ function SectionMain() {
                 </div>
               </div>
               {/* 2 Card */}
-              <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2">
+              <div className="border-2 rounded-2xl p-5 bg-white border-orange shadow-md space-y-2" onClick={handleClick}>
                 <h1 className="text-xs md:text-sm text-gray-400">
                   Net ontvangen, vandaag 12:05
                 </h1>

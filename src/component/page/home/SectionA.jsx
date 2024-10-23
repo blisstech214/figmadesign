@@ -1,4 +1,3 @@
-
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter } from "react-icons/fi";
 import company from "../../../assets/first.jpg";
@@ -8,15 +7,38 @@ import mail from "../../../assets/emailbox 1.png";
 import mail2 from "../../../assets/factuurboxsymbool 1.png";
 import tick from "../../../assets/tick.png";
 import wrong from "../../../assets/wrong.png";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import SectionB from "./SectionB";
+import SectionMain from "./SectionMain";
+import Inbox from "./Inbox";
+import Outbox from "./Outbox";
 function SectionA() {
-  const navigate = useNavigate();
-  const Click = (e) => {
-    e.preventDefault();
-    navigate("/SectionB");
+  const [showSectionB, setShowSectionB] = useState(false);
+  const [ShowSectionMain, setShowSectionMain] = useState(false);
+  const [ShowMail, setShowMail] = useState(false);
+  const handleUploadClick = () => {
+    setShowSectionB(true); // This will trigger SectionB to show
   };
+
+  const handleClick = () => {
+    setShowSectionMain(true);
+  };
+
+  const MailClick = () => {
+    setShowMail(true);
+  };
+  // If `showSectionB` is true, render SectionB instead of SectionA
+  if (showSectionB) {
+    return <SectionB />;
+  }
+  if (ShowSectionMain) {
+    return <SectionMain />;
+  }
+  if (ShowMail) {
+    return (<Inbox />), (<Outbox />);
+  }
   return (
-    <div className="">
+    <div>
       {/* Header Section */}
       <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
         <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">
@@ -57,8 +79,9 @@ function SectionA() {
             <div className="flex gap-3">
               <img src={company} alt="Company software" className="w-[60%]" />
               <div className="flex justify-center items-center">
+                {/* Button to trigger `handleUploadClick` */}
                 <button
-                  onClick={Click}
+                  onClick={handleUploadClick} // Correctly trigger the parent state change
                   className="bg-green text-center p-2 sm:p-4 px-3 sm:px-5 rounded-2xl text-white text-xs sm:text-sm"
                 >
                   Upload factuur
@@ -72,7 +95,10 @@ function SectionA() {
           </div>
 
           {/* Second Card */}
-          <div className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl">
+          <div
+            className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl cursor-pointer"
+            onClick={handleClick}
+          >
             <div className="flex justify-between">
               <h1 className="text-sm sm:text-lg font-bold text-blue">
                 je factuurbox is de eerste Gratis conversie tool voor al je
@@ -84,10 +110,9 @@ function SectionA() {
             <p className="text-xs sm:text-sm md:text-lg font-medium">
               Ondernemers kunnen met de factuurbox
               <span className="text-green2">
-                {" "}
                 honderden euroos conversiekosten besparen
-              </span>{" "}
-              op hun huidige boekhoudkosten...{" "}
+              </span>
+              op hun huidige boekhoudkosten...
               <span className="text-gray-400">lees meer</span>
             </p>
             <img
@@ -98,7 +123,10 @@ function SectionA() {
           </div>
 
           {/* Third Card */}
-          <div className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl">
+          <div
+            className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl"
+            onClick={MailClick}
+          >
             <div className="flex justify-between">
               <h1 className="text-sm sm:text-lg font-bold text-blue">
                 Van mailbox naar Factuurbox

@@ -26,11 +26,11 @@ function Navbar() {
       <nav className="p-3 lg:p-4 bg-gray-100 flex justify-between items-center">
         <div className="flex items-center space-x-2 md:space-x-3">
           <img src={logo} alt="Logo" className="h-8 w-auto md:h-10 ml-2" />
-          <div className="flex lg:gap-24 md:gap-24 gap-2">
-            <h1 className="text-blue text-xl sm:text-2xl md:text-3xl font-bold">
+          <div className="flex lg:gap-24 md:gap-24 gap-5">
+            <h1 className="text-blue text-xl  flex items-center justify-center sm:text-2xl md:text-3xl font-bold">
               je factuurbox
             </h1>
-            <h2 className="text-orangedark text-base sm:text-lg md:text-2xl font-bold">
+            <h2 className="text-orangedark flex items-center justify-center text-base sm:text-lg md:text-2xl font-bold">
               2024
             </h2>
           </div>
@@ -64,6 +64,11 @@ function Navbar() {
             <li className="flex gap-5 items-center cursor-pointer hover:text-blue" onClick={() => handleClick("profile")}>
               <IoMdContact className="text-2xl" />
               <h1 className="text-sm md:text-base">Profile</h1>
+            </li>
+            <li className="cursor-pointer space-y-1">
+              <div className=" rounded-lg bg-white outline-1 flex items-center justify-center  text-blue border-2 hover:border-blue ">+</div>
+              <h1 className="text-base text-center">Upload</h1>
+
             </li>
           </ul>
         </aside>
