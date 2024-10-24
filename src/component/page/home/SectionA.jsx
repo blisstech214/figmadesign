@@ -81,10 +81,7 @@ function SectionA() {
           </div>
 
           {/* Second Card */}
-          <div
-            className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl cursor-pointer"
-            onClick={handleUploadClick}
-          >
+          <div className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl cursor-pointer">
             <div className="flex justify-between">
               <h1 className="text-sm sm:text-lg font-bold text-blue">
                 je factuurbox is de eerste Gratis conversie tool voor al je

@@ -40,7 +40,7 @@ function Navbar() {
   return (
     <div className="flex flex-col h-screen">
       {/* Navbar */}
-      <nav className="p-3 lg:p-4 bg-gray-100 flex justify-between items-center">
+      <nav className="p-3 lg:p-4 bg-white flex justify-between items-center">
         <div className="flex items-center space-x-2 md:space-x-3">
           <img src={logo} alt="Logo" className="h-8 w-auto md:h-10 ml-2" />
           <div className="flex lg:gap-24 md:gap-24 gap-5">

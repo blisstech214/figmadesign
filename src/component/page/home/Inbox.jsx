@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter, FiSearch } from "react-icons/fi";
@@ -7,12 +6,10 @@ import { HiOutlineBars2 } from "react-icons/hi2";
 import square from "../../../assets/Rectangle 57.png";
 
 function Inbox() {
-  // Setting dynamic values using state
   const [totalAmount, setTotalAmount] = useState(3415);
   const [btw, setBtw] = useState(true);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true); // Show list by default
 
-  // Product data (could come from API or database)
   const products = [
     {
       id: 1,
@@ -45,13 +42,13 @@ function Inbox() {
 
   // Toggle function for dropdown
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen(!isDropdownOpen); // Toggle show/hide list
   };
 
   return (
     <div className="">
       <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
-        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">inbox Total</h1>
+        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">Inbox Total</h1>
         <h1 className="text-base sm:text-xl font-bold">€{totalAmount},-</h1>
         <div className="flex justify-around items-center p-1 text-white rounded-full w-28 sm:w-32 bg-orange">
           <h1 className="text-xs sm:text-sm">BTW aan</h1>
@@ -60,10 +57,10 @@ function Inbox() {
           </h1>
         </div>
       </div>
+
       <div className="bg-bgcolor max-h-screen md:px-10 md:p-10 p-5 space-y-5">
-        {/* Filter Options */}
         <div className="flex justify-around items-center">
-          <h1 className="text-xl font-bold text-orangedark">terug</h1>
+          <h1 className="text-xl font-bold text-orangedark">Terug</h1>
           <h1 className="text-lg text-orangedark">
             meest <br /> betaald
           </h1>
@@ -81,7 +78,7 @@ function Inbox() {
         <div className="bg-white p-2 space-y-3 px-10">
           <div className="flex justify-between py-6">
             <h1 className="font-bold text-lg">Overzicht meest betaalde aankopen</h1>
-            <h1 
+            <h1
               className="text-orangedark text-2xl flex items-center font-bold cursor-pointer"
               onClick={toggleDropdown} // Add onClick to toggle dropdown
             >
@@ -89,10 +86,8 @@ function Inbox() {
             </h1>
           </div>
 
-          {/* Conditionally render the product list based on isDropdownOpen state */}
-          {isDropdownOpen && (
+          {isDropdownOpen && ( // Show or hide list based on isDropdownOpen state
             <div>
-              {/* Dynamic product listing */}
               {products.map((product, index) => (
                 <ul
                   key={product.id}
@@ -120,9 +115,9 @@ function Inbox() {
             </div>
           )}
 
-          {/* Add margin-top to create whitespace between products and pagination */}
-          <div className="p-0"> {/* Adjust this value as needed for more or less space */}
-            <ul className="flex justify-between p-8 items-center text-white text-sm">
+          {/* Pagination */}
+          <div className="p-0">
+            <ul className="flex justify-between items-center gap-5 text-white text-sm">
               <li className="flex gap-0">
                 <div className="w-10 h-10 px-2 bg-orangedark flex items-center justify-center rounded">
                   {"<<"}

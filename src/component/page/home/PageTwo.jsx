@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { HiOutlineBars2 } from "react-icons/hi2";
 import A from "../../../assets/A.png";
@@ -7,12 +6,18 @@ import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter, FiSearch } from "react-icons/fi";
 
 function PageTwo() {
-  // State to manage the dropdown visibility
-  const [openDropdown, setOpenDropdown] = useState(null);
+  // Set the default state to show all dropdown lists
+  const [openDropdown, setOpenDropdown] = useState(
+    Array.from({ length: 2 }, (_, index) => index) // Adjust length based on your items
+  );
 
   // Toggle function for the dropdown
   const toggleDropdown = (index) => {
-    setOpenDropdown(openDropdown === index ? null : index);
+    setOpenDropdown((prevState) =>
+      prevState.includes(index)
+        ? prevState.filter((i) => i !== index) // Remove index from state (hide)
+        : [...prevState, index] // Add index to state (show)
+    );
   };
 
   const items = [
@@ -106,11 +111,15 @@ function PageTwo() {
                   <img src={item.logo} alt={item.title} />
                   <div>
                     <h2 className="text-black font-bold">{item.title}</h2>
-                    <span className="text-gray-300 font-normal">totaal facturen</span>
+                    <span className="text-gray-300 font-normal">
+                      totaal facturen
+                    </span>
                   </div>
                 </li>
                 <li className="text-gray-400 py-5">{item.invoices}</li>
-                <li className="text-black font-bold pr-16 py-5">{item.total}</li>
+                <li className="text-black font-bold pr-16 py-5">
+                  {item.total}
+                </li>
               </ul>
               <h1 className="text-orangedark text-2xl flex items-center font-bold">
                 <HiOutlineBars2 onClick={() => toggleDropdown(index)} />
@@ -119,7 +128,7 @@ function PageTwo() {
             <hr />
 
             {/* Dropdown Content */}
-            {openDropdown === index && (
+            {openDropdown.includes(index) && (
               <ul className="space-y-7">
                 {item.transactions.map((transaction, tIndex) => (
                   <li
@@ -129,12 +138,16 @@ function PageTwo() {
                     <li className="flex items-center space-x-10">
                       <img src={item.logo} alt={item.title} />
                       <div>
-                        <span className="text-gray-400 font-normal">{transaction.date}</span>
+                        <span className="text-gray-400 font-normal">
+                          {transaction.date}
+                        </span>
                         <h2 className="text-black font-bold">{item.title}</h2>
                       </div>
                     </li>
                     <li className="text-gray-300">{transaction.count}</li>
-                    <li className="text-black font-bold pr-20">{transaction.amount}</li>
+                    <li className="text-black font-bold pr-20">
+                      {transaction.amount}
+                    </li>
                   </li>
                 ))}
               </ul>
