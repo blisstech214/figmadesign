@@ -9,34 +9,17 @@ import tick from "../../../assets/tick.png";
 import wrong from "../../../assets/wrong.png";
 import { useState } from "react";
 import SectionB from "./SectionB";
-import SectionMain from "./SectionMain";
-import Inbox from "./Inbox";
-import Outbox from "./Outbox";
 function SectionA() {
   const [showSectionB, setShowSectionB] = useState(false);
-  const [ShowSectionMain, setShowSectionMain] = useState(false);
-  const [ShowMail, setShowMail] = useState(false);
+
   const handleUploadClick = () => {
-    setShowSectionB(true); // This will trigger SectionB to show
+    setShowSectionB(true);
   };
 
-  const handleClick = () => {
-    setShowSectionMain(true);
-  };
-
-  const MailClick = () => {
-    setShowMail(true);
-  };
-  // If `showSectionB` is true, render SectionB instead of SectionA
   if (showSectionB) {
     return <SectionB />;
   }
-  if (ShowSectionMain) {
-    return <SectionMain />;
-  }
-  if (ShowMail) {
-    return (<Inbox />), (<Outbox />);
-  }
+
   return (
     <div>
       {/* Header Section */}
@@ -81,8 +64,11 @@ function SectionA() {
               <div className="flex justify-center items-center">
                 {/* Button to trigger `handleUploadClick` */}
                 <button
-                  onClick={handleUploadClick} // Correctly trigger the parent state change
-                  className="bg-green text-center p-2 sm:p-4 px-3 sm:px-5 rounded-2xl text-white text-xs sm:text-sm"
+                  onClick={handleUploadClick} // Correctly trigger the parent
+                  state
+                  change
+                  className="bg-green text-center p-2 sm:p-4 px-3
+                  sm:px-5 rounded-2xl text-white text-xs sm:text-sm"
                 >
                   Upload factuur
                 </button>
@@ -97,7 +83,7 @@ function SectionA() {
           {/* Second Card */}
           <div
             className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl cursor-pointer"
-            onClick={handleClick}
+            onClick={handleUploadClick}
           >
             <div className="flex justify-between">
               <h1 className="text-sm sm:text-lg font-bold text-blue">
@@ -123,10 +109,7 @@ function SectionA() {
           </div>
 
           {/* Third Card */}
-          <div
-            className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl"
-            onClick={MailClick}
-          >
+          <div className="bg-white space-y-3 p-4 sm:p-5 border-2 rounded-xl">
             <div className="flex justify-between">
               <h1 className="text-sm sm:text-lg font-bold text-blue">
                 Van mailbox naar Factuurbox

@@ -1,16 +1,74 @@
-import React from "react";
+
+import React, { useState } from "react";
 import { HiOutlineBars2 } from "react-icons/hi2";
 import A from "../../../assets/A.png";
 import C from "../../../assets/logoT.png";
-
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter, FiSearch } from "react-icons/fi";
+
 function PageTwo() {
+  // State to manage the dropdown visibility
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  // Toggle function for the dropdown
+  const toggleDropdown = (index) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
+
+  const items = [
+    {
+      logo: A,
+      title: "Bouwmaat Haarlem",
+      invoices: 4,
+      total: "€1.302,-",
+      transactions: [
+        {
+          date: "21 oktober ontvangen ,22:05",
+          amount: "€150,-",
+          count: 1,
+        },
+        {
+          date: "21 september ontvangen ,22:05",
+          amount: "€12,-",
+          count: 1,
+        },
+        {
+          date: "11 january ontvangen ,22:05",
+          amount: "€550,-",
+          count: 1,
+        },
+        {
+          date: "01 january ontvangen ,22:05",
+          amount: "€660,-",
+          count: 1,
+        },
+      ],
+    },
+    {
+      logo: C,
+      title: "T-Mobile",
+      invoices: 2,
+      total: "€80,-",
+      transactions: [
+        {
+          date: "21 oktober ontvangen ,22:05",
+          amount: "€50,-",
+          count: 1,
+        },
+        {
+          date: "21 september ontvangen ,22:05",
+          amount: "€40,-",
+          count: 1,
+        },
+      ],
+    },
+  ];
+
   return (
-    <div className="">
+    <div>
       <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
         <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">
-          inbox Total
+          Inbox Total
         </h1>
         <h1 className="text-base sm:text-xl font-bold">€150,-</h1>
         <div className="flex justify-around items-center p-1 text-white rounded-full w-28 sm:w-32 bg-orange">
@@ -39,138 +97,50 @@ function PageTwo() {
           </h1>
         </div>
 
-        <div className="bg-white p-5 space-y-5">
-          <div className="flex justify-end space-y-3 items-center">
-            <h1 className="text-orangedark text-2xl flex items-center font-bold">
-              <HiOutlineBars2 />
-            </h1>
+        {items.map((item, index) => (
+          <div className="bg-white p-5 space-y-5" key={index}>
+            {/* Default Content */}
+            <div className="flex justify-between items-center">
+              <ul className="md:text-lg list-none font-medium text-sm flex justify-between w-full">
+                <li className="flex items-center space-x-10">
+                  <img src={item.logo} alt={item.title} />
+                  <div>
+                    <h2 className="text-black font-bold">{item.title}</h2>
+                    <span className="text-gray-300 font-normal">totaal facturen</span>
+                  </div>
+                </li>
+                <li className="text-gray-400 py-5">{item.invoices}</li>
+                <li className="text-black font-bold pr-16 py-5">{item.total}</li>
+              </ul>
+              <h1 className="text-orangedark text-2xl flex items-center font-bold">
+                <HiOutlineBars2 onClick={() => toggleDropdown(index)} />
+              </h1>
+            </div>
+            <hr />
+
+            {/* Dropdown Content */}
+            {openDropdown === index && (
+              <ul className="space-y-7">
+                {item.transactions.map((transaction, tIndex) => (
+                  <li
+                    className="md:text-lg list-none font-medium text-sm flex justify-between items-center"
+                    key={tIndex}
+                  >
+                    <li className="flex items-center space-x-10">
+                      <img src={item.logo} alt={item.title} />
+                      <div>
+                        <span className="text-gray-400 font-normal">{transaction.date}</span>
+                        <h2 className="text-black font-bold">{item.title}</h2>
+                      </div>
+                    </li>
+                    <li className="text-gray-300">{transaction.count}</li>
+                    <li className="text-black font-bold pr-20">{transaction.amount}</li>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-          <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-            <li className="">
-              <img src={A} />
-            </li>
-            <li className="text-black font-bold">
-              Bouwmaat Haarlem <br />
-              <span className="text-gray-300 font-normal">totaal facturen</span>
-            </li>
-            <li className="text-gray-300">4</li>
-            <li className="text-black font-bold">€1.302,-</li>
-          </p>
-          <hr />
-         
-            <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-              <li className="">
-                <img src={A} />
-              </li>
-              <li className="text-black font-bold">
-                <span className="text-gray-300 font-normal">
-                  21 oktober ontvangen ,22:05
-                </span>
-                <br />
-                Bouwmaat Haarlem
-              </li>
-              <li className="text-gray-300">1</li>
-              <li className="text-black font-bold">€150,-</li>
-            </p>
-            <hr />
-            <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-              <li className="">
-                <img src={A} />
-              </li>
-              <li className="text-black font-bold">
-                <span className="text-gray-300 font-normal">
-                  21 september ontvangen ,22:05
-                </span>
-                <br />
-                Bouwmaat Haarlem
-              </li>
-              <li className="text-gray-300">1</li>
-              <li className="text-black font-bold">€12,-</li>
-            </p>
-            <hr />
-            <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-              <li className="">
-                <img src={A} />
-              </li>
-              <li className="text-black font-bold">
-                <span className="text-gray-300 font-normal">
-                  11 january ontvangen ,22:05
-                </span>
-                <br />
-                Bouwmaat Haarlem
-              </li>
-              <li className="text-gray-300">1</li>
-              <li className="text-black font-bold">€550,-</li>
-            </p>
-            <hr />
-            <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-              <li className="">
-                <img src={A} />
-              </li>
-              <li className="text-black font-bold">
-                <span className="text-gray-300 font-normal">
-                  01 january ontvangen ,22:05
-                </span>
-                <br />
-                Bouwmaat Haarlem
-              </li>
-              <li className="text-gray-300">1</li>
-              <li className="text-black font-bold">€660,-</li>
-            </p>
-            <hr />
-        
-        </div>
-        <div className="bg-white p-5 space-y-5">
-          <div className="flex justify-end space-y-3 items-center">
-            <h1 className="text-orangedark text-2xl flex items-center font-bold">
-              <HiOutlineBars2 />
-            </h1>
-          </div>
-          <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-            <li className="">
-              <img src={C} />
-            </li>
-            <li className="text-black font-bold">
-              T- Mobile <br />
-              <span className="text-gray-300 font-normal">totaal facturen</span>
-            </li>
-            <li className="text-gray-300">2</li>
-            <li className="text-black font-bold">€80,-</li>
-          </p>
-          <hr />
-         
-            <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-              <li className="">
-                <img src={C} />
-              </li>
-              <li className="text-black font-bold">
-                <span className="text-gray-300 font-normal">
-                  21 oktober ontvangen ,22:05
-                </span>
-                <br />
-                Bouwmaat Haarlem
-              </li>
-              <li className="text-gray-300">1</li>
-              <li className="text-black font-bold">€50,-</li>
-            </p>
-            <hr />
-            <p className="md:text-lg list-none font-medium text-sm flex justify-between items-center">
-              <li className="">
-                <img src={C} />
-              </li>
-              <li className="text-black font-bold">
-                <span className="text-gray-300 font-normal">
-                  21 september ontvangen ,22:05
-                </span>
-                <br />
-                Bouwmaat Haarlem
-              </li>
-              <li className="text-gray-300">1</li>
-              <li className="text-black font-bold">€40,-</li>
-            </p>
-            <hr />
-          
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -1,16 +1,29 @@
-
 import React from "react";
+import { useState } from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FiFilter } from "react-icons/fi";
 import company from "../../../assets/first.jpg";
 import { HiOutlineBars2 } from "react-icons/hi2";
 import { IoMdCamera } from "react-icons/io";
+import SectionC from "./SectionC";
 
 function SectionB() {
+  const [showSection, setShowSection] = useState(false);
+
+  const UploadClick = () => {
+    setShowSection(true);
+  };
+
+  if (showSection) {
+    return <SectionC />;
+  }
+
   return (
     <div className="w-full">
       <div className="flex flex-row justify-between px-5 sm:px-10 py-5">
-        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">inbox Total</h1>
+        <h1 className="text-sm sm:text-lg font-medium sm:font-semibold">
+          inbox Total
+        </h1>
         <h1 className="text-base sm:text-xl font-bold">€0,-</h1>
         <div className="flex justify-around items-center p-1 text-white rounded-full w-28 sm:w-32 bg-orange">
           <h1 className="text-xs sm:text-sm">BTW aan</h1>
@@ -23,7 +36,9 @@ function SectionB() {
       <div className="bg-bgcolor md:px-10 md:p-10 p-4 space-y-4 md:space-y-5">
         {/* Filter Options */}
         <div className="flex justify-around items-center">
-          <h1 className="text-sm md:text-lg font-bold text-orangedark">vandaag</h1>
+          <h1 className="text-sm md:text-lg font-bold text-orangedark">
+            vandaag
+          </h1>
           <h1 className="text-sm md:text-lg text-zinc-400">gisteren</h1>
           <h1 className="text-lg md:text-xl text-orangedark font-bold">
             <FiFilter />
@@ -44,7 +59,10 @@ function SectionB() {
             </div>
             <div className="flex gap-3">
               <img src={company} alt="Company software" className="w-[60%]" />
-              <div className="flex justify-center items-center">
+              <div
+                className="flex justify-center items-center"
+                onClick={UploadClick}
+              >
                 <button className="bg-green text-center p-2 sm:p-4 px-3 sm:px-5 rounded-2xl text-white text-xs sm:text-sm">
                   Upload factuur
                 </button>
